@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-        // ✅ Bottom Navigation setup
+        //  Bottom Navigation setup
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
