@@ -14,4 +14,5 @@
     <string name="menu2">menu Item 2</string>
     <string name="menu3">menu Item 3</string>
     <string name="profile">My profile</string>
+    <string name="settings">Settings</string>
 </resources>
