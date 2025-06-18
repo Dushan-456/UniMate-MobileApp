@@ -12,11 +12,6 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_menu1"
-        android:name="com.s23010664.unimate.ui.menu1.Menu1Fragment"
-        android:label="@string/menu1"
-        tools:layout="@layout/fragment_menu1" />
-    <fragment
         android:id="@+id/nav_gallery"
         android:name="com.s23010664.unimate.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
