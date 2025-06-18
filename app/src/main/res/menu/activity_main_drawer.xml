@@ -38,5 +38,9 @@
             android:id="@+id/menu3"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu3" />
+        <item
+            android:id="@+id/nav_user_profile"
+            android:icon="@drawable/round_person_24"
+            android:title="@string/profile" />
     </group>
 </menu>

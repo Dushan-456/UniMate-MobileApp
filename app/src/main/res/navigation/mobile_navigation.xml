@@ -27,4 +27,9 @@
         android:name="com.s23010664.unimate.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_user_profile"
+        android:name="com.s23010664.unimate.ui.userprofile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
