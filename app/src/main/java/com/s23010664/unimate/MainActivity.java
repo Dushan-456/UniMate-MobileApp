@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Define top-level destinations
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_user_profile)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_user_profile,R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
 
@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         //  Bottom Navigation setup
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_nav);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
+
     }
 
     @Override
