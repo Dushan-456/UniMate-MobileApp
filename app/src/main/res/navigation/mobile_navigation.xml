@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.s23010664.unimate.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_activity_list"
+        android:name="com.s23010664.unimate.ui.activitylist.ActivityListFragment"
+        android:label="@string/menu_activitylist"
+        tools:layout="@layout/fragment_activity_list" />
 
     <fragment
         android:id="@+id/nav_settings"
