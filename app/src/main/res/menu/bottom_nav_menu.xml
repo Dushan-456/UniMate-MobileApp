@@ -23,7 +23,7 @@
             android:title="@string/menu_slideshow" />
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/baseline_access_alarms_24"
+            android:icon="@drawable/baseline_build_24"
             android:title="@string/settings" />
     </group>
 
