@@ -10,14 +10,15 @@
             android:icon="@drawable/baseline_apps_24"
             android:title="@string/menu_dashboard" />
         <item
+            android:id="@+id/nav_activity_list"
+            android:icon="@drawable/baseline_assignment_24"
+            android:title="@string/menu_activitylist" />
+        <item
             android:id="@+id/nav_user_profile"
             android:icon="@drawable/round_person_24"
             android:title="@string/profile" />
 
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+
 
 
 
