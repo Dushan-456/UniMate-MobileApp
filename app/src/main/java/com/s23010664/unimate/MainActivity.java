@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         // Navigation Drawer setup
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
