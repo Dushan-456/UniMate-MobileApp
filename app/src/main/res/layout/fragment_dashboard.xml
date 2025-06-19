@@ -130,6 +130,7 @@
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/action"
                     android:layout_width="0dp"
                     android:layout_height="100dp"
                     android:layout_margin="5dp"
