@@ -4,9 +4,9 @@
     <group android:checkableBehavior="single"
         android:id="@+id/group1">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/baseline_local_grocery_store_24"
-            android:title="Home" />
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/baseline_apps_24"
+            android:title="@string/menu_dashboard" />
 
         <item
             android:id="@+id/nav_gallery"
