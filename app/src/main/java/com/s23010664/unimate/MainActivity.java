@@ -1,15 +1,12 @@
 package com.s23010664.unimate;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -63,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Define top-level destinations
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dashboard, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_user_profile,R.id.nav_settings)
+                R.id.nav_dashboard, R.id.nav_activity_list, R.id.nav_slideshow, R.id.nav_user_profile,R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
 
