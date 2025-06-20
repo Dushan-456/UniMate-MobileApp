@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -24,5 +26,13 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
+
+        // Drop down List
+        Spinner spinner = findViewById(R.id.spinnerUniversity);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_spinner_item,
+                new String[]{"","University of Colombo", "University of Peradeniya", "University of Moratuwa"});
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 }
