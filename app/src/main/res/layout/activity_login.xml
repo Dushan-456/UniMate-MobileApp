@@ -11,7 +11,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello\nSign in!"
+        android:text="Log in!"
         android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="30sp"
@@ -19,7 +19,23 @@
         app:layout_constraintBottom_toTopOf="@+id/linear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <TextView
+        android:id="@+id/title1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="54sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333" />
 
     <LinearLayout
         android:id="@+id/linear"
