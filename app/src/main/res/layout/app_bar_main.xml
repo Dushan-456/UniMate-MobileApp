@@ -23,6 +23,7 @@
     <!-- Main Content -->
 
     <!-- Floating Action Button -->
+
     <include layout="@layout/content_main" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
