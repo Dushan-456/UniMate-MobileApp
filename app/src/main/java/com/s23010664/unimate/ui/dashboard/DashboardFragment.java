@@ -17,7 +17,6 @@ import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.s23010664.unimate.R;
-import com.s23010664.unimate.ui.userprofile.ProfileFragment;
 
 public class DashboardFragment extends Fragment {
 
@@ -38,29 +37,34 @@ public class DashboardFragment extends Fragment {
             navView.setSelectedItemId(R.id.nav_user_profile);
         });
 
-
-
+//
+//
         ListView listView = view.findViewById(R.id.sampleListView);
-
+//
         String[] sampleData = {
-                "John Doe - johndoe@example.com",
-                "Jane Smith - janesmith@gmail.com",
-                "Nimal Perera - nimal@uni.lk"
+                "John Doe",
+                "Jane Smith",
+                "Nimal Perera",
+                "John Doe",
+                "Jane Smith",
+                "Nimal Perera"
         };
-
-// Use a simple adapter
+//
+//// Use a simple adapter
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 requireContext(), // Use requireContext() in fragments
-                android.R.layout.simple_list_item_1,
+                R.layout.activity_list,
+                R.id.listtext,
                 sampleData
         );
 
-// Attach to ListView
+//
+//// Attach to ListView
         listView.setAdapter(adapter);
-
-
-
-
+//
+//
+//
+//
 
         return view;
 

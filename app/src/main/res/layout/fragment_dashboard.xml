@@ -306,7 +306,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="546dp"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -317,7 +317,6 @@
                         android:gravity="center_vertical"
 
                         android:orientation="horizontal">
-
 
 
                         <TextView
@@ -332,10 +331,8 @@
                     <ListView
                         android:id="@+id/sampleListView"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="16dp"
-                        android:divider="@android:color/white"
-                        android:dividerHeight="1dp" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp" />
 
 
                 </LinearLayout>
