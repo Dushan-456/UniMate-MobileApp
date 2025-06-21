@@ -1,14 +1,19 @@
 package com.s23010664.unimate;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -34,25 +39,46 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(binding.appBarMain.toolbar);
 
         // Setup FAB click
-        binding.appBarMain.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"Hello World", Toast.LENGTH_SHORT).show();
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//                Snackbar snackbar = Snackbar
-//                        .make(view, "Message is deleted", Snackbar.LENGTH_LONG)
-//                        .setAction("UNDO", new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//                                Snackbar snackbar1 = Snackbar.make(view, "Message is restored!", Snackbar.LENGTH_SHORT);
-//                                snackbar1.show();
-//                            }
-//                        });
-//
-//                snackbar.show();
-            }
+        binding.appBarMain.fab.setOnClickListener(view -> {
+            // Inflate with Activity context
+            View popupView = LayoutInflater.from(MainActivity.this).inflate(R.layout.popup_menu, null);
+
+            // Create the popup window
+            final PopupWindow popupWindow = new PopupWindow(
+                    popupView,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    true
+            );
+
+            // Set background (optional)
+            popupWindow.setBackgroundDrawable(ContextCompat.getDrawable(MainActivity.this, R.drawable.popup_background));
+            popupWindow.setElevation(10);
+
+            // Show near the FAB (view is the FAB here)
+            popupWindow.showAsDropDown(view, -450, -550); // Adjust x/y offset
+
+            // Setup popup buttons
+            Button btnActivity = popupView.findViewById(R.id.addactivity);
+            Button btnLost = popupView.findViewById(R.id.addlost);
+            Button btnIssue = popupView.findViewById(R.id.addissues);
+
+            btnActivity.setOnClickListener(v -> {
+                NavController navController = Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment_content_main);
+                navController.navigate(R.id.nav_addactivity);
+                popupWindow.dismiss();
+            });
+
+            btnLost.setOnClickListener(v -> {
+                Toast.makeText(MainActivity.this, "Lost Clicked", Toast.LENGTH_SHORT).show();
+                popupWindow.dismiss();
+            });
+            btnIssue.setOnClickListener(v -> {
+                Toast.makeText(MainActivity.this, "Issues Clicked", Toast.LENGTH_SHORT).show();
+                popupWindow.dismiss();
+            });
         });
+
 
 
 
