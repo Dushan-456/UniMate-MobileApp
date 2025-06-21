@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Define top-level destinations
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dashboard, R.id.nav_activity_list, R.id.nav_slideshow, R.id.nav_user_profile,R.id.nav_settings)
+                R.id.nav_dashboard, R.id.nav_activity_list, R.id.nav_calender, R.id.nav_user_profile,R.id.nav_settings)
                 .setOpenableLayout(drawer)
                 .build();
 

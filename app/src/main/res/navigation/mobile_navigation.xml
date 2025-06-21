@@ -6,6 +6,11 @@
     app:startDestination="@+id/nav_dashboard">
 
     <fragment
+        android:id="@+id/nav_calender"
+        android:name="com.s23010664.unimate.ui.calender.CalenderFragment"
+        android:label="@string/menu_Calender"
+        tools:layout="@layout/fragment_calender" />
+    <fragment
         android:id="@+id/nav_addactivity"
         android:name="com.s23010664.unimate.ui.addactivity.AddActivityFragment"
         android:label="@string/menu_addactivity"
