@@ -29,6 +29,10 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_addactivity"
+            android:icon="@drawable/baseline_add_circle_24"
+            android:title="@string/menu_addactivity" />
 
     </group>
     <group android:checkableBehavior="single"

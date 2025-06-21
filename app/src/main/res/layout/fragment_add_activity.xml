@@ -1,0 +1,73 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Activity Type Dropdown -->
+        <Spinner
+            android:id="@+id/spinnerActivityType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- EVENT FIELDS -->
+        <LinearLayout
+            android:id="@+id/layoutEvent"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText android:hint="Event Name" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <EditText android:hint="Date" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <EditText android:hint="Time" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <EditText android:hint="Location" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- LECTURE FIELDS -->
+        <LinearLayout
+            android:id="@+id/layoutLecture"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText android:hint="Subject" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <EditText android:hint="Date" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <EditText android:hint="Time" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+            <RadioGroup android:id="@+id/radioGroupLectureType" android:orientation="horizontal"
+                android:layout_width="match_parent" android:layout_height="wrap_content">
+                <RadioButton android:id="@+id/radioOnline" android:text="Online"/>
+                <RadioButton android:id="@+id/radioPhysical" android:text="Physical"/>
+            </RadioGroup>
+
+            <EditText android:id="@+id/editTextZoomLink"
+                android:hint="Zoom Link (if Online)"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <!-- ASSIGNMENT FIELDS -->
+        <LinearLayout
+            android:id="@+id/layoutAssignment"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText android:hint="Assignment Name" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <EditText android:hint="Subject" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <EditText android:hint="Due Date" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <EditText android:hint="Due Time" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+            <EditText android:hint="LMS Link" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
