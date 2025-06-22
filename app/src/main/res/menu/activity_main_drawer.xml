@@ -45,6 +45,23 @@
             android:id="@+id/nav_settings"
             android:icon="@drawable/baseline_build_24"
             android:title="@string/settings" />
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/baseline_app_settings_alt_24"
+            android:title="Share" />
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/baseline_app_settings_alt_24"
+            android:title="Help" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/baseline_app_settings_alt_24"
+            android:title="About App" />
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/baseline_app_settings_alt_24"
+            android:title="Log Out" />
+
 
     </group>
 

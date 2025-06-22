@@ -29,11 +29,11 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
 
-        Button actionButton = view.findViewById(R.id.activity_btn);
-        actionButton.setOnClickListener(v -> {
-            BottomNavigationView navView = requireActivity().findViewById(R.id.bottom_nav);
-            navView.setSelectedItemId(R.id.nav_dashboard);
-        });
+//        Button actionButton = view.findViewById(R.id.activity_btn);
+//        actionButton.setOnClickListener(v -> {
+//            BottomNavigationView navView = requireActivity().findViewById(R.id.bottom_nav);
+//            navView.setSelectedItemId(R.id.nav_dashboard);
+//        });
 
         return view;
     }
