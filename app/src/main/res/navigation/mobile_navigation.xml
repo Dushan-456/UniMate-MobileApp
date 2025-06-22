@@ -11,6 +11,11 @@
         android:label="@string/menu_Calender"
         tools:layout="@layout/fragment_calender" />
     <fragment
+        android:id="@+id/nav_unimap"
+        android:name="com.s23010664.unimate.ui.unimap.UniMapFragment"
+        android:label="@string/menu_UniMap"
+        tools:layout="@layout/fragment_uni_map" />
+    <fragment
         android:id="@+id/nav_addactivity"
         android:name="com.s23010664.unimate.ui.addactivity.AddActivityFragment"
         android:label="@string/menu_addactivity"
@@ -32,11 +37,6 @@
         android:name="com.s23010664.unimate.ui.settings.SettingsFragment"
         android:label="@string/settings"
         tools:layout="@layout/fragment_settings" />
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.s23010664.unimate.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/nav_user_profile"
         android:name="com.s23010664.unimate.ui.userprofile.ProfileFragment"

@@ -21,19 +21,16 @@
             android:id="@+id/nav_calender"
             android:icon="@drawable/baseline_calendar_month_24"
             android:title="@string/menu_Calender" />
-
-
-
-
+        <item
+            android:id="@+id/nav_unimap"
+            android:icon="@drawable/baseline_calendar_month_24"
+            android:title="@string/menu_UniMap" />
 
 
     </group>
     <group android:checkableBehavior="single"
         android:id="@+id/group2">
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+
         <item
             android:id="@+id/nav_addactivity"
             android:icon="@drawable/baseline_add_circle_24"
@@ -43,10 +40,7 @@
     <group android:checkableBehavior="single"
         android:id="@+id/group3">
 
-        <item
-            android:id="@+id/menu3"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu3" />
+
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/baseline_build_24"

@@ -1,37 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/popupLayout"
-    android:orientation="vertical"
-    android:padding="12dp"
-    android:background="@drawable/popup_background"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000"> <!-- 50% black dim -->
 
-    <Button
-        android:id="@+id/addactivity"
+    <!-- Your popup content -->
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:background="@drawable/btn_outline"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/baseline_add_circle_24"
-        android:drawablePadding="8dp"
-        android:text="Add Activity" />
+        android:background="@drawable/popup_background"
+        android:padding="16dp"
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/addlost"
-        android:layout_width="wrap_content"
-        android:drawableStart="@drawable/baseline_add_circle_24"
-        android:drawablePadding="8dp"
-        android:background="@drawable/btn_outline"
-        android:layout_height="wrap_content"
-        android:text="Add Lost and Found" />
+        <Button
+            android:id="@+id/addactivity"
+            android:layout_width="wrap_content"
+            android:background="@drawable/btn_outline"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseline_add_circle_24"
+            android:drawablePadding="8dp"
+            android:text="Add Activity" />
 
-    <Button
-        android:id="@+id/addissues"
-        android:layout_width="wrap_content"
-        android:drawableStart="@drawable/baseline_add_circle_24"
-        android:drawablePadding="8dp"
-        android:background="@drawable/btn_outline"
-        android:layout_height="wrap_content"
-        android:text="Add Issues" />
+        <Button
+            android:id="@+id/addlost"
+            android:layout_width="wrap_content"
+            android:drawableStart="@drawable/baseline_add_circle_24"
+            android:drawablePadding="8dp"
+            android:background="@drawable/btn_outline"
+            android:layout_height="wrap_content"
+            android:text="Add Lost and Found" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/addissues"
+            android:layout_width="wrap_content"
+            android:drawableStart="@drawable/baseline_add_circle_24"
+            android:drawablePadding="8dp"
+            android:background="@drawable/btn_outline"
+            android:layout_height="wrap_content"
+            android:text="Add Issues" />
+    </LinearLayout>
+</FrameLayout>

@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="7dp">
 
                 <!-- Time -->
                 <TextView
@@ -88,7 +88,7 @@
                         android:paddingHorizontal="12dp"
                         android:layout_marginStart="100dp"
                         android:paddingVertical="4dp"
-                        android:text="Done"
+                        android:text="Completed"
                         android:textColor="#ffffff"
                         android:textSize="12sp" />
                 </LinearLayout>
