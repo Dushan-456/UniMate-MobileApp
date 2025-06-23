@@ -45,6 +45,7 @@ public class AddActivityFragment extends Fragment {
         LinearLayout layoutLecture = view.findViewById(R.id.layoutLecture);
         LinearLayout layoutAssignment = view.findViewById(R.id.layoutAssignment);
         EditText zoomLink = view.findViewById(R.id.editTextZoomLink);
+        EditText lectureroom = view.findViewById(R.id.lectureroom);
         RadioGroup radioGroupLecture = view.findViewById(R.id.radioGroupLectureType);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -67,13 +68,15 @@ public class AddActivityFragment extends Fragment {
         radioGroupLecture.setOnCheckedChangeListener((group, checkedId) -> {
             if (checkedId == R.id.radioOnline) {
                 zoomLink.setVisibility(View.VISIBLE);
-            } else {
+                lectureroom.setVisibility(View.GONE);
+
+            } else if (checkedId == R.id.radioPhysical) {
+                lectureroom.setVisibility(View.VISIBLE);
                 zoomLink.setVisibility(View.GONE);
             }
+
+
         });
-
-
-
 
 
 
