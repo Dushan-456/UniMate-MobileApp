@@ -24,12 +24,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+
                 android:orientation="horizontal"
-                android:spacing="12dp">
+                >
 
                 <SearchView
                     android:id="@+id/searchView"
-                    android:layout_width="266dp"
+                    android:layout_width="245dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@drawable/search_background"
@@ -42,12 +43,10 @@
                     android:id="@+id/cardView"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_margin="10dp"
                     android:background="@android:color/white"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="6dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                  >
 
                     <ImageView
                         android:id="@+id/ss"
@@ -194,12 +193,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="3 Items Lost"
+                            android:text="3 Items in Lost"
                             android:textSize="14sp" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1 Items Found"
+                            android:text="1 Items in Found"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -214,7 +213,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
-                    android:layout_height="170dp"
+                    android:layout_height="150dp"
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     app:cardCornerRadius="12dp"
@@ -229,50 +228,51 @@
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:contentDescription="Buy"
-                            android:src="@drawable/ic_menu_slideshow" />
+                            android:src="@drawable/assingment" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Notifications"
+                            android:layout_marginBottom="2dp"
+                            android:text="Today Activities"
+                            android:textStyle="bold"
                             android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Notifications"
-                            android:textSize="14sp" />
+                            android:layout_marginTop="1dp"
+                            android:text="Asignment Due - 2"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Notifications"
-                            android:textSize="14sp" />
+                            android:layout_marginTop="1dp"
+                            android:text="Online Lectures - 2"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Notifications"
-                            android:textSize="14sp" />
+                            android:layout_marginTop="1dp"
+                            android:text="Physical Lectures - 2"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Notifications"
-                            android:textSize="14sp" />
+                            android:layout_marginTop="1dp"
+                            android:text="Events - 0"
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="0dp"
-                    android:layout_height="170dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="4dp">
@@ -286,42 +286,44 @@
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:src="@drawable/ic_menu_slideshow" />
+                            android:src="@drawable/assingment" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Notifications"
+                            android:layout_marginBottom="2dp"
+                            android:text="Today Activities"
+                            android:textStyle="bold"
                             android:textSize="14sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Notifications"
-                            android:textSize="14sp" />
+                            android:layout_marginTop="1dp"
+                            android:text="Asignment Due - 2"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Notifications"
-                            android:textSize="14sp" />
+                            android:layout_marginTop="1dp"
+                            android:text="Online Lectures - 2"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Notifications"
-                            android:textSize="14sp" />
+                            android:layout_marginTop="1dp"
+                            android:text="Physical Lectures - 2"
+                            android:textSize="12sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="Notifications"
-                            android:textSize="14sp" />
+                            android:layout_marginTop="1dp"
+                            android:text="Events - 0"
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
