@@ -25,6 +25,10 @@
             android:id="@+id/nav_unimap"
             android:icon="@drawable/baseline_calendar_month_24"
             android:title="@string/menu_UniMap" />
+<!--        <item-->
+<!--            android:id="@+id/nav_lostnfound"-->
+<!--            android:icon="@drawable/baseline_calendar_month_24"-->
+<!--            android:title="@string/menu_UniMap" />-->
 
 
     </group>

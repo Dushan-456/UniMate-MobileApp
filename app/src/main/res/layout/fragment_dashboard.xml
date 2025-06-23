@@ -21,114 +21,36 @@
             android:paddingBottom="100dp"
             android:orientation="vertical"
             android:spacing="12dp">
+            <SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:queryHint="Search..."
+                android:iconifiedByDefault="false"
+                android:background="@drawable/search_background"
+                android:layout_margin="16dp"
+                android:padding="8dp"
+                android:elevation="4dp"/>
 
             <!-- Top Card: Bitcoin Balance -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
                 app:cardCornerRadius="16dp"
                 android:layout_margin="10dp"
                 app:cardElevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="150dp"
+                    android:background="@drawable/unimatecover"
+
                     android:orientation="vertical"
-                    android:padding="16dp">
-
-                    <!-- Top Row: Logo + Title -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="32dp"
-                                android:layout_height="32dp"
-                                android:contentDescription="Bitcoin"
-                                android:src="@drawable/baseline_local_grocery_store_24" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:text="Bitcoin"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="BTC"
-                            android:textColor="#999999"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <!-- BTC Value -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="3.529020 BTC"
-                        android:textSize="28sp"
-                        android:textStyle="bold" />
-
-                    <!-- USD Value + Change -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="$19,153 USD"
-                            android:textColor="#888888"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/rounded_pink_badge"
-                            android:paddingLeft="8dp"
-                            android:paddingTop="4dp"
-                            android:paddingRight="8dp"
-                            android:paddingBottom="4dp"
-                            android:text="-2.32%"
-                            android:textColor="@android:color/white"
-                            android:textSize="12sp" />
-                    </LinearLayout>
-                </LinearLayout>
+                    android:padding="16dp"/>
             </androidx.cardview.widget.CardView>
 
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginTop="8dp"
 
-                android:contentDescription="Chart"
-                android:scaleType="fitCenter"
-                android:src="@drawable/unimatelogo" />
-
-            <!-- Buy & Sell Buttons -->
-            <Button
-                android:id="@+id/btn10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -140,7 +62,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/action"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="120dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     app:cardCornerRadius="12dp"
@@ -168,8 +90,9 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/activity_card"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="120dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     app:cardCornerRadius="12dp"
@@ -182,23 +105,23 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:contentDescription="Buy"
-                            android:src="@drawable/ic_menu_slideshow" />
+                            android:layout_width="62dp"
+                            android:layout_height="62dp"
+                            android:src="@drawable/assingment" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Lost and Found"
+                            android:text="Activities : 05"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/lostnfound"
                     android:layout_width="0dp"
-                    android:layout_height="100dp"
+                    android:layout_height="120dp"
                     android:layout_margin="5dp"
                     android:layout_weight="1"
                     app:cardCornerRadius="12dp"
@@ -211,16 +134,20 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:contentDescription="Sell"
-                            android:src="@drawable/baseline_apps_24" />
+                            android:layout_width="62dp"
+                            android:layout_height="62dp"
+                            android:src="@drawable/lostnfound" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Events"
+                            android:text="3 Items Lost"
+                            android:textSize="14sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1 Items Found"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -296,6 +223,11 @@
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btn10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

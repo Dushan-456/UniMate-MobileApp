@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.cardview.widget.CardView;
 import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
@@ -35,6 +36,18 @@ public class DashboardFragment extends Fragment {
         actionCard.setOnClickListener(v -> {
             BottomNavigationView navView = requireActivity().findViewById(R.id.bottom_nav);
             navView.setSelectedItemId(R.id.nav_user_profile);
+        });
+        CardView activitycard = view.findViewById(R.id.activity_card);
+        activitycard.setOnClickListener(v -> {
+            BottomNavigationView navView = requireActivity().findViewById(R.id.bottom_nav);
+            navView.setSelectedItemId(R.id.nav_activity_list);
+        });
+
+
+        CardView lostnfoundCard = view.findViewById(R.id.lostnfound);
+        lostnfoundCard.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.nav_lostnfound); // This works even if not in bottom nav or drawer
         });
 
 //

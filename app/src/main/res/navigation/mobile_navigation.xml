@@ -11,6 +11,11 @@
         android:label="@string/menu_Calender"
         tools:layout="@layout/fragment_calender" />
     <fragment
+        android:id="@+id/nav_lostnfound"
+        android:name="com.s23010664.unimate.ui.lostnfound.LostNFoundFragment"
+        android:label="@string/menu_Lost"
+        tools:layout="@layout/fragment_lost_n_found" />
+    <fragment
         android:id="@+id/nav_unimap"
         android:name="com.s23010664.unimate.ui.unimap.UniMapFragment"
         android:label="@string/menu_UniMap"

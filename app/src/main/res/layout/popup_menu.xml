@@ -29,7 +29,15 @@
             android:drawablePadding="8dp"
             android:background="@drawable/btn_outline"
             android:layout_height="wrap_content"
-            android:text="Add Lost and Found" />
+            android:text="Add Lost Item" />
+        <Button
+            android:id="@+id/addfind"
+            android:layout_width="wrap_content"
+            android:drawableStart="@drawable/baseline_add_circle_24"
+            android:drawablePadding="8dp"
+            android:background="@drawable/btn_outline"
+            android:layout_height="wrap_content"
+            android:text="Add Found Items" />
 
         <Button
             android:id="@+id/addissues"
