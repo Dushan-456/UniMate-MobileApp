@@ -65,6 +65,7 @@
 
 
             <EditText
+                android:id="@+id/editTextEventName"
                 android:hint="Event Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,6 +75,7 @@
                 android:textColor="#000000"
                 android:layout_marginBottom="12dp" />
             <EditText
+                android:id="@+id/editTextEventOrganizer"
                 android:hint="Organized By"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,6 +86,7 @@
                 android:layout_marginBottom="12dp" />
 
             <EditText
+                android:id="@+id/editTextEventDate"
                 android:hint="Date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,6 +97,7 @@
                 android:layout_marginBottom="12dp" />
 
             <EditText
+                android:id="@+id/editTextEventTime"
                 android:hint="Time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,6 +108,7 @@
                 android:layout_marginBottom="12dp" />
 
             <EditText
+                android:id="@+id/editTextEventLocation"
                 android:hint="Location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -135,6 +140,7 @@
 
 
             <EditText
+                android:id="@+id/editTextLectureSubject"
                 android:hint="Subject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,6 +150,7 @@
                 android:textColor="#000000"
                 android:layout_marginBottom="12dp" />
             <EditText
+                android:id="@+id/editTextLectureDate"
                 android:hint="Lecture Date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -154,6 +161,7 @@
                 android:layout_marginBottom="12dp" />
 
             <EditText
+                android:id="@+id/editTextLectureTime"
                 android:hint="Lecture Time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -163,15 +171,7 @@
                 android:textColor="#000000"
                 android:layout_marginBottom="12dp" />
 
-            <EditText
-                android:hint="Time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/search_background"
-                android:padding="12dp"
-                android:textSize="16sp"
-                android:textColor="#000000"
-                android:layout_marginBottom="12dp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -227,6 +227,7 @@
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/editTextAssignmentName"
                 android:hint="Assignment Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -236,6 +237,7 @@
                 android:textColor="#000000"
                 android:layout_marginBottom="12dp" />
             <EditText
+                android:id="@+id/editTextAssignmentSubject"
                 android:hint="Subject"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -246,6 +248,7 @@
                 android:layout_marginBottom="12dp" />
 
             <EditText
+                android:id="@+id/editTextAssignmentDueDate"
                 android:hint="Due Date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -256,6 +259,7 @@
                 android:layout_marginBottom="12dp" />
 
             <EditText
+                android:id="@+id/editTextAssignmentDueTime"
                 android:hint="Due Time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -266,6 +270,7 @@
                 android:layout_marginBottom="12dp" />
 
             <EditText
+                android:id="@+id/editTextAssignmentLink"
                 android:hint="Submission Link"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
