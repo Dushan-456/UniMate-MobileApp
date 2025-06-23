@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 //        setupBiometricPrompt();
 
         // Show on app start
-        showBiometricPrompt();
+     //   showBiometricPrompt();
         // ViewBinding setup
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

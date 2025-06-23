@@ -32,11 +32,13 @@ public class DashboardFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
         // Find the CardView by ID and set click listener
-        CardView actionCard = view.findViewById(R.id.action);
+        CardView actionCard = view.findViewById(R.id.map);
         actionCard.setOnClickListener(v -> {
             BottomNavigationView navView = requireActivity().findViewById(R.id.bottom_nav);
-            navView.setSelectedItemId(R.id.nav_user_profile);
+            navView.setSelectedItemId(R.id.nav_unimap);
         });
+
+
         CardView activitycard = view.findViewById(R.id.activity_card);
         activitycard.setOnClickListener(v -> {
             BottomNavigationView navView = requireActivity().findViewById(R.id.bottom_nav);

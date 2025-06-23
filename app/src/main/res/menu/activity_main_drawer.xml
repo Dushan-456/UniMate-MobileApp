@@ -23,12 +23,9 @@
             android:title="@string/menu_Calender" />
         <item
             android:id="@+id/nav_unimap"
-            android:icon="@drawable/baseline_calendar_month_24"
+            android:icon="@drawable/baseline_add_location_alt_24"
             android:title="@string/menu_UniMap" />
-<!--        <item-->
-<!--            android:id="@+id/nav_lostnfound"-->
-<!--            android:icon="@drawable/baseline_calendar_month_24"-->
-<!--            android:title="@string/menu_UniMap" />-->
+
 
 
     </group>
@@ -51,19 +48,19 @@
             android:title="@string/settings" />
         <item
             android:id="@+id/nav_share"
-            android:icon="@drawable/baseline_app_settings_alt_24"
+            android:icon="@drawable/baseline_autorenew_24"
             android:title="Share" />
         <item
             android:id="@+id/nav_help"
-            android:icon="@drawable/baseline_app_settings_alt_24"
+            android:icon="@drawable/baseline_campaign_24"
             android:title="Help" />
         <item
             android:id="@+id/nav_about"
-            android:icon="@drawable/baseline_app_settings_alt_24"
+            android:icon="@drawable/baseline_app_shortcut_24"
             android:title="About App" />
         <item
             android:id="@+id/nav_logout"
-            android:icon="@drawable/baseline_app_settings_alt_24"
+            android:icon="@drawable/baseline_input_24"
             android:title="Log Out" />
 
 
