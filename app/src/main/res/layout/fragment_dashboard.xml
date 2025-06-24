@@ -30,13 +30,12 @@
 
                 <SearchView
                     android:id="@+id/searchView"
-                    android:layout_width="245dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="256dp"
+                    android:layout_height="35dp"
                     android:layout_margin="16dp"
                     android:background="@drawable/search_background"
                     android:elevation="4dp"
                     android:iconifiedByDefault="false"
-                    android:padding="8dp"
                     android:queryHint="Search..." />
 
                 <androidx.cardview.widget.CardView
