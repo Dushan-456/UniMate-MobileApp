@@ -57,12 +57,12 @@ public class DashboardFragment extends Fragment {
         ListView listView = view.findViewById(R.id.sampleListView);
 //
         String[] sampleData = {
-                "John Doe",
-                "Jane Smith",
-                "Nimal Perera",
-                "John Doe",
-                "Jane Smith",
-                "Nimal Perera"
+                "Lecture",
+                "Event",
+                "Assignment Submit",
+                "Lecture",
+                "Lecture",
+                "Event"
         };
 //
 //// Use a simple adapter
