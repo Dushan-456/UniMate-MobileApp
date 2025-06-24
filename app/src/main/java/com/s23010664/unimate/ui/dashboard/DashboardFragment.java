@@ -63,6 +63,11 @@ public class DashboardFragment extends Fragment {
                 "Lecture",
                 "Lecture",
                 "Event"
+                ,"Lecture",
+                "Event",
+                "Assignment Submit",
+                "Lecture",
+                "Lecture"
         };
 //
 //// Use a simple adapter
