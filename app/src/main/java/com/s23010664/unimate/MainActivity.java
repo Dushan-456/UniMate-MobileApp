@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     true
             );
 
-            // Optional: set transparent background and outside touch
+            //  set transparent background and outside touch
             popupWindow.setBackgroundDrawable(ContextCompat.getDrawable(this, android.R.color.transparent));
             popupWindow.setOutsideTouchable(true);
             popupWindow.setFocusable(true);
