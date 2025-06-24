@@ -36,17 +36,20 @@ public class ActivityListFragment extends Fragment {
         ListView listView = view.findViewById(R.id.activityListView);
 //
         String[] sampleData = {
-                "John Doe",
-                "Jane Smith",
-                "Nimal Perera",
-                "John Doe",
-                "Jane Smith",
-                "John Doe",
-                "Jane Smith",
-                "Nimal Perera",
-                "John Doe",
-                "Jane Smith",
-                "Nimal Perera"
+                "Online Lecture",
+                "Assignment Submission",
+                "Lab Test",
+                "CAT1 Exam",
+                "SESOC Event",
+                "Online Lecture",
+                "Assignment Submission",
+                "Lab Test",
+                "CAT1 Exam",
+                "SESOC Event", "Online Lecture",
+                "Assignment Submission",
+                "Lab Test",
+                "CAT1 Exam",
+                "SESOC Event"
         };
 //
 //// Use a simple adapter
