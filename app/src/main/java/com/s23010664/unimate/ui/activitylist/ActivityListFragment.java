@@ -16,7 +16,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.s23010664.unimate.DBHelper;
 import com.s23010664.unimate.R;
+
+import java.util.List;
 
 public class ActivityListFragment extends Fragment {
 
@@ -24,6 +27,8 @@ public class ActivityListFragment extends Fragment {
     public static ActivityListFragment newInstance() {
         return new ActivityListFragment();
     }
+
+    private DBHelper dbHelper;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -34,6 +39,11 @@ public class ActivityListFragment extends Fragment {
 
 //
         ListView listView = view.findViewById(R.id.activityListView);
+        dbHelper = new DBHelper(requireContext());
+
+        List<String> events = dbHelper.getEventList();
+
+
 //
         String[] sampleData = {
                 "Online Lecture",
@@ -57,7 +67,7 @@ public class ActivityListFragment extends Fragment {
                 requireContext(), // Use requireContext() in fragments
                 R.layout.activity_list1,
                 R.id.activity_text,
-                sampleData
+                events
         );
 
 //
