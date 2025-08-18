@@ -11,7 +11,7 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- TabLayout (no TabItems) -->
+        <!-- TabLayout  -->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/lostnfound_tab"
             android:layout_width="match_parent"
