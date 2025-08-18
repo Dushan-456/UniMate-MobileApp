@@ -7,13 +7,17 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.google.android.material.tabs.TabLayout;
+import com.s23010664.unimate.MainActivity;
 import com.s23010664.unimate.R;
 
 public class LostNFoundFragment extends Fragment {
@@ -40,6 +44,20 @@ public class LostNFoundFragment extends Fragment {
         // Set default view
         lostTab.setVisibility(View.VISIBLE);
         foundTab.setVisibility(View.GONE);
+
+        Button add_lost_items = view.findViewById(R.id.add_lost_items);
+        add_lost_items.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.nav_addlostitem);
+
+        });
+
+        Button add_found_items = view.findViewById(R.id.add_found_items);
+        add_found_items.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.nav_addfounditem);
+
+        });
 
         // Tab selected listener
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
