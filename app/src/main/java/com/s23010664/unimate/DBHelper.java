@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Unimate.db";
@@ -19,6 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // users Table
         db.execSQL("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT UNIQUE, first_name TEXT, last_name TEXT, gender TEXT, birthday TEXT, university TEXT, password TEXT)");
+
         // Event Table
         db.execSQL("CREATE TABLE event(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, organizer TEXT, date TEXT, time TEXT, location TEXT)");
 
@@ -37,7 +41,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS assignment");
         onCreate(db);
     }
-    // user registration
+
+    // ==================== USERS ====================
     public boolean registerUser(String email, String firstName, String lastName, String gender,
                                 String birthday, String university, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -63,7 +68,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    //Event Insert method
+    // ==================== EVENT ====================
     public boolean insertEvent(String name, String organizer, String date, String time, String location) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -75,7 +80,26 @@ public class DBHelper extends SQLiteOpenHelper {
         long result = db.insert("event", null, cv);
         return result != -1;
     }
-    //Lecture Insert method
+
+    public List<String> getEventList() {
+        List<String> events = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM event", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                String row = cursor.getString(cursor.getColumnIndexOrThrow("name"))
+                        + " - " + cursor.getString(cursor.getColumnIndexOrThrow("date"))
+                        + " " + cursor.getString(cursor.getColumnIndexOrThrow("time"))
+                        + " @ " + cursor.getString(cursor.getColumnIndexOrThrow("location"));
+                events.add(row);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return events;
+    }
+
+    // ==================== LECTURE ====================
     public boolean insertLecture(String subject, String date, String time, String type, String zoomLink, String location) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -88,7 +112,26 @@ public class DBHelper extends SQLiteOpenHelper {
         long result = db.insert("lecture", null, cv);
         return result != -1;
     }
-    //Assignment Insert method
+
+    public List<String> getLectureList() {
+        List<String> lectures = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM lecture", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                String row = cursor.getString(cursor.getColumnIndexOrThrow("subject"))
+                        + " (" + cursor.getString(cursor.getColumnIndexOrThrow("type")) + ") "
+                        + cursor.getString(cursor.getColumnIndexOrThrow("date"))
+                        + " " + cursor.getString(cursor.getColumnIndexOrThrow("time"));
+                lectures.add(row);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return lectures;
+    }
+
+    // ==================== ASSIGNMENT ====================
     public boolean insertAssignment(String name, String subject, String dueDate, String dueTime, String submissionLink) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -101,5 +144,21 @@ public class DBHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-}
+    public List<String> getAssignmentList() {
+        List<String> assignments = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM assignment", null);
 
+        if (cursor.moveToFirst()) {
+            do {
+                String row = cursor.getString(cursor.getColumnIndexOrThrow("name"))
+                        + " (" + cursor.getString(cursor.getColumnIndexOrThrow("subject")) + ") "
+                        + "Due: " + cursor.getString(cursor.getColumnIndexOrThrow("dueDate"))
+                        + " " + cursor.getString(cursor.getColumnIndexOrThrow("dueTime"));
+                assignments.add(row);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return assignments;
+    }
+}
