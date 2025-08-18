@@ -55,5 +55,8 @@
             android:scrollbars="none"
             android:footerDividersEnabled="false"
             android:headerDividersEnabled="false" />
+
+
     </LinearLayout>
+
 </LinearLayout>
