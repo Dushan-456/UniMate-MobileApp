@@ -26,6 +26,16 @@
         android:label="@string/menu_addactivity"
         tools:layout="@layout/fragment_add_activity" />
     <fragment
+        android:id="@+id/nav_addlostitem"
+        android:name="com.s23010664.unimate.ui.addlostitem.AddLostItemFragment"
+        android:label="@string/menu_addlostitem"
+        tools:layout="@layout/fragment_add_lost_item" />
+    <fragment
+        android:id="@+id/nav_addfounditem"
+        android:name="com.s23010664.unimate.ui.addfounditem.AddFoundItemFragment"
+        android:label="@string/menu_addfounditem"
+        tools:layout="@layout/fragment_add_found_item" />
+    <fragment
         android:id="@+id/nav_dashboard"
         android:name="com.s23010664.unimate.ui.dashboard.DashboardFragment"
         android:label="@string/menu_dashboard"
