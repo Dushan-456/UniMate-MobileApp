@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             // Handle button actions inside popup
             Button btnActivity = popupView.findViewById(R.id.addactivity);
             Button btnLost = popupView.findViewById(R.id.addlost);
+            Button btnFound = popupView.findViewById(R.id.addfind);
             Button btnIssue = popupView.findViewById(R.id.addissues);
 
             btnActivity.setOnClickListener(v -> {
@@ -95,7 +96,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             });
 
             btnLost.setOnClickListener(v -> {
-                Toast.makeText(MainActivity.this, "Lost Clicked", Toast.LENGTH_SHORT).show();
+                NavController navController = Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment_content_main);
+                navController.navigate(R.id.nav_addlostitem);
+                popupWindow.dismiss();
+            });
+
+            btnFound.setOnClickListener(v -> {
+                NavController navController = Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment_content_main);
+                navController.navigate(R.id.nav_addfounditem);
                 popupWindow.dismiss();
             });
 
