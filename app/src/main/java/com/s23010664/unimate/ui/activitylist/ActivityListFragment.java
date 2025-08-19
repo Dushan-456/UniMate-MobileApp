@@ -36,7 +36,6 @@ public class ActivityListFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_activity_list, container, false);
 
-
 //
         ListView listView = view.findViewById(R.id.activityListView);
         dbHelper = new DBHelper(requireContext());
