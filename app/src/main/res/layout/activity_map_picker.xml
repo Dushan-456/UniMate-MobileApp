@@ -9,7 +9,11 @@
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="378dp"
+        android:layout_above="@+id/btnConfirmLocation"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="77dp"
+        android:layout_marginBottom="181dp" />
 
     <Button
         android:id="@+id/btnConfirmLocation"
