@@ -176,31 +176,35 @@
                             android:textSize="20sp"
                             android:textStyle="bold" />
                         <TextView
+                            android:id="@+id/profileName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="Name - N D Kodikara"
+                            android:text="Name - "
                             android:textSize="15sp"
                           />
                         <TextView
+                            android:id="@+id/profileBirthday"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="Birth Day - 2001-08-24"
+                            android:text="Birth Day - "
                             android:textSize="15sp"
                      />
                         <TextView
+                            android:id="@+id/profileUniversity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="The Open University Srilanka"
+                            android:text=""
                             android:textSize="15sp"
                    />
                         <TextView
+                            android:id="@+id/profileEmail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="navodyadushan123@gmail.com"
+                            android:text=""
                             android:textSize="15sp"
                    />
 
@@ -234,24 +238,27 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/contactEmail"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="Email - \n navodyadushan123@gmail.com"
+                            android:text="Email - "
                             android:textSize="15sp"
                             />
                         <TextView
+                            android:id="@+id/contactUniversity"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="The Open University Srilanka"
+                            android:text=""
                             android:textSize="15sp"
                             />
                         <TextView
+                            android:id="@+id/contactGender"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:text="Mobile Number - \n 071 9675669"
+                            android:text="Gender - "
                             android:textSize="15sp"
                             />
 
