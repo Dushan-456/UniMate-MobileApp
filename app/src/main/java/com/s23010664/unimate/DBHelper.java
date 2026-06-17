@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -104,6 +106,30 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    // ==================== PASSWORD HASHING ====================
+
+    /**
+     * Hashes a plaintext password using SHA-256.
+     * @param password The plaintext password.
+     * @return The hex-encoded SHA-256 hash, or null if hashing fails.
+     */
+    private String hashPassword(String password) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(password.getBytes());
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     // ==================== USERS TABLE METHODS ====================
 
     /**
@@ -115,13 +141,17 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
+        // Hash the password before storing it.
+        String hashedPassword = hashPassword(password);
+        if (hashedPassword == null) return false;
+
         values.put("email", email);
         values.put("first_name", firstName);
         values.put("last_name", lastName);
         values.put("gender", gender);
         values.put("birthday", birthday);
         values.put("university", university);
-        values.put("password", password);
+        values.put("password", hashedPassword);
 
         long result = db.insert("users", null, values);
         return result != -1; // Returns true if a row was inserted, false otherwise.
@@ -132,11 +162,25 @@ public class DBHelper extends SQLiteOpenHelper {
      * @return true if user exists, false otherwise.
      */
     public boolean checkLogin(String email, String password) {
+        // Hash the input password to compare with the stored hash.
+        String hashedPassword = hashPassword(password);
+        if (hashedPassword == null) return false;
+
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE email=? AND password=?", new String[]{email, password});
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE email=? AND password=?", new String[]{email, hashedPassword});
         boolean result = cursor.getCount() > 0;
         cursor.close();
         return result;
+    }
+
+    /**
+     * Retrieves user details by email.
+     * @param email The user's email address.
+     * @return A Cursor containing the user's data, or null if not found. Caller must close the cursor.
+     */
+    public Cursor getUserByEmail(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM users WHERE email=?", new String[]{email});
     }
 
     // ==================== EVENT TABLE METHODS ====================
