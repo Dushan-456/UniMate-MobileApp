@@ -54,9 +54,10 @@
 
 
                     <TextView
+                        android:id="@+id/activity_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="09:00 AM - 09:30 AM"
+                        android:text=""
                         android:textColor="#555555"
                         android:textSize="12sp"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -140,7 +141,7 @@
                         android:background="@drawable/tag_done"
                         android:paddingHorizontal="12dp"
                         android:paddingVertical="4dp"
-                        android:text="Completed"
+                        android:text="Mark as Complete"
                         android:textColor="#ffffff"
                         android:textSize="10sp"
                         app:layout_constraintBottom_toBottomOf="parent"
