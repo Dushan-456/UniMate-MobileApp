@@ -22,7 +22,7 @@
         <LinearLayout
             android:id="@+id/lost_tab"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingTop="16dp">
 
@@ -34,22 +34,35 @@
                 android:text="Add New Lost Item" />
 
             <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
+                android:id="@+id/lost_empty_text"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Lost Items Content"
+                android:text="No lost items reported yet."
+                android:gravity="center"
+                android:layout_marginTop="32dp"
                 android:textSize="16sp"
-                android:textColor="#000000" />
+                android:textColor="#999999"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/lost_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:scrollbars="none" />
         </LinearLayout>
 
         <!-- FOUND ITEMS layout -->
         <LinearLayout
             android:id="@+id/found_tab"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:paddingTop="16dp"
             android:visibility="gone">
+
             <Button
                 android:id="@+id/add_found_items"
                 android:layout_width="match_parent"
@@ -58,12 +71,24 @@
                 android:text="Add New Found Item" />
 
             <TextView
-                android:id="@+id/textView9"
-                android:layout_width="wrap_content"
+                android:id="@+id/found_empty_text"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Found Items Content"
+                android:text="No found items reported yet."
+                android:gravity="center"
+                android:layout_marginTop="32dp"
                 android:textSize="16sp"
-                android:textColor="#000000" />
+                android:textColor="#999999"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/found_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:scrollbars="none" />
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>
