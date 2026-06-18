@@ -20,7 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
     // --- Database Constants ---
     public static final String DATABASE_NAME = "Unimate.db";
     // Increment the version number if you change the database schema.
-    public static final int DATABASE_VERSION = 2; // Updated from 1 to 2 because we changed the 'event' table schema
+    public static final int DATABASE_VERSION = 3; // Updated to 3 for lost_n_found table
 
     /**
      * Constructor for DBHelper.
@@ -81,11 +81,23 @@ public class DBHelper extends SQLiteOpenHelper {
                 "dueTime TEXT, " +
                 "submissionLink TEXT)";
 
+        // SQL statement to create the 'lost_n_found' table.
+        final String SQL_CREATE_LOST_N_FOUND_TABLE = "CREATE TABLE lost_n_found (" +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "type TEXT, " + // 'lost' or 'found'
+                "title TEXT, " +
+                "description TEXT, " +
+                "location TEXT, " +
+                "date TEXT, " +
+                "contact TEXT, " +
+                "image_uri TEXT)";
+
         // Execute the SQL statements to create the tables.
         db.execSQL(SQL_CREATE_USERS_TABLE);
         db.execSQL(SQL_CREATE_EVENT_TABLE);
         db.execSQL(SQL_CREATE_LECTURE_TABLE);
         db.execSQL(SQL_CREATE_ASSIGNMENT_TABLE);
+        db.execSQL(SQL_CREATE_LOST_N_FOUND_TABLE);
     }
 
     /**
@@ -102,6 +114,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS event");
         db.execSQL("DROP TABLE IF EXISTS lecture");
         db.execSQL("DROP TABLE IF EXISTS assignment");
+        db.execSQL("DROP TABLE IF EXISTS lost_n_found");
         // Create tables again.
         onCreate(db);
     }
@@ -300,5 +313,371 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return assignments;
+    }
+
+    // ==================== COMBINED / FILTERED QUERY METHODS ====================
+
+    /**
+     * Returns all activities (events + lectures + assignments) combined into a single list.
+     * Each entry is prefixed with its type for display: [Event], [Lecture], [Assignment].
+     */
+    public List<String> getAllActivities() {
+        List<String> all = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Events
+        Cursor c1 = db.rawQuery("SELECT * FROM event", null);
+        if (c1.moveToFirst()) {
+            do {
+                String row = "[Event] " + c1.getString(c1.getColumnIndexOrThrow("name"))
+                        + " - " + c1.getString(c1.getColumnIndexOrThrow("date"))
+                        + " " + c1.getString(c1.getColumnIndexOrThrow("time"));
+                all.add(row);
+            } while (c1.moveToNext());
+        }
+        c1.close();
+
+        // Lectures
+        Cursor c2 = db.rawQuery("SELECT * FROM lecture", null);
+        if (c2.moveToFirst()) {
+            do {
+                String row = "[Lecture] " + c2.getString(c2.getColumnIndexOrThrow("subject"))
+                        + " (" + c2.getString(c2.getColumnIndexOrThrow("type")) + ") "
+                        + c2.getString(c2.getColumnIndexOrThrow("date"))
+                        + " " + c2.getString(c2.getColumnIndexOrThrow("time"));
+                all.add(row);
+            } while (c2.moveToNext());
+        }
+        c2.close();
+
+        // Assignments
+        Cursor c3 = db.rawQuery("SELECT * FROM assignment", null);
+        if (c3.moveToFirst()) {
+            do {
+                String row = "[Assignment] " + c3.getString(c3.getColumnIndexOrThrow("name"))
+                        + " (" + c3.getString(c3.getColumnIndexOrThrow("subject")) + ") "
+                        + "Due: " + c3.getString(c3.getColumnIndexOrThrow("dueDate"))
+                        + " " + c3.getString(c3.getColumnIndexOrThrow("dueTime"));
+                all.add(row);
+            } while (c3.moveToNext());
+        }
+        c3.close();
+
+        return all;
+    }
+
+    /**
+     * Returns events filtered by a specific date (format: YYYY-MM-DD).
+     */
+    public List<String> getEventsByDate(String date) {
+        List<String> events = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM event WHERE date=?", new String[]{date});
+        if (cursor.moveToFirst()) {
+            do {
+                String row = "[Event] " + cursor.getString(cursor.getColumnIndexOrThrow("name"))
+                        + " " + cursor.getString(cursor.getColumnIndexOrThrow("time"))
+                        + " @ " + cursor.getString(cursor.getColumnIndexOrThrow("location"));
+                events.add(row);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return events;
+    }
+
+    /**
+     * Returns lectures filtered by a specific date (format: YYYY-MM-DD).
+     */
+    public List<String> getLecturesByDate(String date) {
+        List<String> lectures = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM lecture WHERE date=?", new String[]{date});
+        if (cursor.moveToFirst()) {
+            do {
+                String row = "[Lecture] " + cursor.getString(cursor.getColumnIndexOrThrow("subject"))
+                        + " (" + cursor.getString(cursor.getColumnIndexOrThrow("type")) + ") "
+                        + cursor.getString(cursor.getColumnIndexOrThrow("time"));
+                lectures.add(row);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return lectures;
+    }
+
+    /**
+     * Returns assignments filtered by a specific due date (format: YYYY-MM-DD).
+     */
+    public List<String> getAssignmentsByDate(String date) {
+        List<String> assignments = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM assignment WHERE dueDate=?", new String[]{date});
+        if (cursor.moveToFirst()) {
+            do {
+                String row = "[Assignment] " + cursor.getString(cursor.getColumnIndexOrThrow("name"))
+                        + " (" + cursor.getString(cursor.getColumnIndexOrThrow("subject")) + ") "
+                        + cursor.getString(cursor.getColumnIndexOrThrow("dueTime"));
+                assignments.add(row);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return assignments;
+    }
+
+    /**
+     * Returns all activities (events + lectures + assignments) for a given date.
+     */
+    public List<String> getActivitiesByDate(String date) {
+        List<String> all = new ArrayList<>();
+        all.addAll(getEventsByDate(date));
+        all.addAll(getLecturesByDate(date));
+        all.addAll(getAssignmentsByDate(date));
+        return all;
+    }
+
+    /**
+     * Returns activity counts for a given date as an int array:
+     * [0] = event count, [1] = lecture count, [2] = assignment count.
+     */
+    public int[] getActivityCountsByDate(String date) {
+        int[] counts = new int[3];
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c1 = db.rawQuery("SELECT COUNT(*) FROM event WHERE date=?", new String[]{date});
+        if (c1.moveToFirst()) counts[0] = c1.getInt(0);
+        c1.close();
+
+        Cursor c2 = db.rawQuery("SELECT COUNT(*) FROM lecture WHERE date=?", new String[]{date});
+        if (c2.moveToFirst()) counts[1] = c2.getInt(0);
+        c2.close();
+
+        Cursor c3 = db.rawQuery("SELECT COUNT(*) FROM assignment WHERE dueDate=?", new String[]{date});
+        if (c3.moveToFirst()) counts[2] = c3.getInt(0);
+        c3.close();
+
+        return counts;
+    }
+
+    // ==================== DELETE METHODS ====================
+
+    public boolean deleteEvent(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("event", "id=?", new String[]{String.valueOf(id)}) > 0;
+    }
+
+    public boolean deleteLecture(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("lecture", "id=?", new String[]{String.valueOf(id)}) > 0;
+    }
+
+    public boolean deleteAssignment(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("assignment", "id=?", new String[]{String.valueOf(id)}) > 0;
+    }
+
+    // ==================== ACTIVITY ITEM QUERY METHODS ====================
+
+    /**
+     * Returns all activities for a given date as ActivityItem objects.
+     */
+    public List<ActivityItem> getActivityItemsByDate(String date) {
+        List<ActivityItem> items = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Events
+        Cursor c1 = db.rawQuery("SELECT * FROM event WHERE date=?", new String[]{date});
+        if (c1.moveToFirst()) {
+            do {
+                items.add(new ActivityItem(
+                        "event",
+                        c1.getInt(c1.getColumnIndexOrThrow("id")),
+                        c1.getString(c1.getColumnIndexOrThrow("name")),
+                        c1.getString(c1.getColumnIndexOrThrow("date")),
+                        c1.getString(c1.getColumnIndexOrThrow("time"))
+                ));
+            } while (c1.moveToNext());
+        }
+        c1.close();
+
+        // Lectures
+        Cursor c2 = db.rawQuery("SELECT * FROM lecture WHERE date=?", new String[]{date});
+        if (c2.moveToFirst()) {
+            do {
+                items.add(new ActivityItem(
+                        "lecture",
+                        c2.getInt(c2.getColumnIndexOrThrow("id")),
+                        c2.getString(c2.getColumnIndexOrThrow("subject")),
+                        c2.getString(c2.getColumnIndexOrThrow("date")),
+                        c2.getString(c2.getColumnIndexOrThrow("time"))
+                ));
+            } while (c2.moveToNext());
+        }
+        c2.close();
+
+        // Assignments
+        Cursor c3 = db.rawQuery("SELECT * FROM assignment WHERE dueDate=?", new String[]{date});
+        if (c3.moveToFirst()) {
+            do {
+                items.add(new ActivityItem(
+                        "assignment",
+                        c3.getInt(c3.getColumnIndexOrThrow("id")),
+                        c3.getString(c3.getColumnIndexOrThrow("name")),
+                        c3.getString(c3.getColumnIndexOrThrow("dueDate")),
+                        c3.getString(c3.getColumnIndexOrThrow("dueTime"))
+                ));
+            } while (c3.moveToNext());
+        }
+        c3.close();
+
+        return items;
+    }
+
+    /**
+     * Returns all activities from all tables as ActivityItem objects.
+     */
+    public List<ActivityItem> getAllActivityItems() {
+        List<ActivityItem> items = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c1 = db.rawQuery("SELECT * FROM event", null);
+        if (c1.moveToFirst()) {
+            do {
+                items.add(new ActivityItem(
+                        "event",
+                        c1.getInt(c1.getColumnIndexOrThrow("id")),
+                        c1.getString(c1.getColumnIndexOrThrow("name")),
+                        c1.getString(c1.getColumnIndexOrThrow("date")),
+                        c1.getString(c1.getColumnIndexOrThrow("time"))
+                ));
+            } while (c1.moveToNext());
+        }
+        c1.close();
+
+        Cursor c2 = db.rawQuery("SELECT * FROM lecture", null);
+        if (c2.moveToFirst()) {
+            do {
+                items.add(new ActivityItem(
+                        "lecture",
+                        c2.getInt(c2.getColumnIndexOrThrow("id")),
+                        c2.getString(c2.getColumnIndexOrThrow("subject")),
+                        c2.getString(c2.getColumnIndexOrThrow("date")),
+                        c2.getString(c2.getColumnIndexOrThrow("time"))
+                ));
+            } while (c2.moveToNext());
+        }
+        c2.close();
+
+        Cursor c3 = db.rawQuery("SELECT * FROM assignment", null);
+        if (c3.moveToFirst()) {
+            do {
+                items.add(new ActivityItem(
+                        "assignment",
+                        c3.getInt(c3.getColumnIndexOrThrow("id")),
+                        c3.getString(c3.getColumnIndexOrThrow("name")),
+                        c3.getString(c3.getColumnIndexOrThrow("dueDate")),
+                        c3.getString(c3.getColumnIndexOrThrow("dueTime"))
+                ));
+            } while (c3.moveToNext());
+        }
+        c3.close();
+
+        return items;
+    }
+
+    /**
+     * Returns all lecture ActivityItems.
+     */
+    public List<ActivityItem> getLectureItems() {
+        List<ActivityItem> items = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM lecture", null);
+        if (cursor.moveToFirst()) {
+            do {
+                items.add(new ActivityItem(
+                        "lecture",
+                        cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("subject")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("date")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("time"))
+                ));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return items;
+    }
+
+    /**
+     * Returns all assignment ActivityItems.
+     */
+    public List<ActivityItem> getAssignmentItems() {
+        List<ActivityItem> items = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM assignment", null);
+        if (cursor.moveToFirst()) {
+            do {
+                items.add(new ActivityItem(
+                        "assignment",
+                        cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("name")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("dueDate")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("dueTime"))
+                ));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return items;
+    }
+
+    // ==================== LOST & FOUND METHODS ====================
+
+    public boolean insertLostNFoundItem(String type, String title, String description, String location, String date, String contact, String imageUri) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("type", type);
+        cv.put("title", title);
+        cv.put("description", description);
+        cv.put("location", location);
+        cv.put("date", date);
+        cv.put("contact", contact);
+        cv.put("image_uri", imageUri);
+        long result = db.insert("lost_n_found", null, cv);
+        return result != -1;
+    }
+
+    public List<LostNFoundItem> getLostNFoundItemsByType(String type) {
+        List<LostNFoundItem> items = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM lost_n_found WHERE type=?", new String[]{type});
+        if (cursor.moveToFirst()) {
+            do {
+                items.add(new LostNFoundItem(
+                        cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("type")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("title")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("description")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("location")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("date")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("contact")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("image_uri"))
+                ));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return items;
+    }
+
+    public int getLostNFoundItemsCount(String type) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM lost_n_found WHERE type=?", new String[]{type});
+        int count = 0;
+        if (cursor.moveToFirst()) {
+            count = cursor.getInt(0);
+        }
+        cursor.close();
+        return count;
+    }
+
+    public boolean deleteLostNFoundItem(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("lost_n_found", "id=?", new String[]{String.valueOf(id)}) > 0;
     }
 }
