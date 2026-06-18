@@ -68,12 +68,13 @@
 
 
             <TextView
+                android:id="@+id/welcomeText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="15dp"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:text="Welcome Dushan" />
+                android:text="Welcome" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -160,10 +161,11 @@
                             android:src="@drawable/assingment" />
 
                         <TextView
+                            android:id="@+id/activity_count_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Activities : 05"
+                            android:text="Activities : 0"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -189,15 +191,17 @@
                             android:src="@drawable/lostnfound" />
 
                         <TextView
+                            android:id="@+id/lost_count_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="3 Items in Lost"
+                            android:text="0 Items in Lost"
                             android:textSize="14sp" />
                         <TextView
+                            android:id="@+id/found_count_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="1 Items in Found"
+                            android:text="0 Items in Found"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -239,27 +243,23 @@
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/todayAssignments"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
-                            android:text="Asignment Due - 2"
+                            android:text="Assignments - 0"
                             android:textSize="12sp" />
 
                         <TextView
+                            android:id="@+id/todayLectures"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
-                            android:text="Online Lectures - 2"
+                            android:text="Lectures - 0"
                             android:textSize="12sp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="1dp"
-                            android:text="Physical Lectures - 2"
-                            android:textSize="12sp" />
-
-                        <TextView
+                            android:id="@+id/todayEvents"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
@@ -292,32 +292,28 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:layout_marginBottom="2dp"
-                            android:text="Today Activities"
+                            android:text="Tomorrow Activities"
                             android:textStyle="bold"
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/tomorrowAssignments"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
-                            android:text="Asignment Due - 2"
+                            android:text="Assignments - 0"
                             android:textSize="12sp" />
 
                         <TextView
+                            android:id="@+id/tomorrowLectures"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
-                            android:text="Online Lectures - 2"
+                            android:text="Lectures - 0"
                             android:textSize="12sp" />
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="1dp"
-                            android:text="Physical Lectures - 2"
-                            android:textSize="12sp" />
-
-                        <TextView
+                            android:id="@+id/tomorrowEvents"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
