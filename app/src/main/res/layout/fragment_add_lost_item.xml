@@ -1,13 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.addlostitem.AddLostItemFragment">
+    android:padding="16dp"
+    android:background="#F5F5F5">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Add Lost Item" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Report Lost Item"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginBottom="24dp"
+            android:gravity="center" />
+
+        <EditText
+            android:id="@+id/lost_title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/search_background"
+            android:hint="Item Title (e.g. Blue Umbrella)"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/lost_description"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/search_background"
+            android:hint="Description &amp; Identifying Features"
+            android:padding="12dp"
+            android:gravity="top|start"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/lost_location"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/search_background"
+            android:hint="Location Lost"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/lost_date"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/search_background"
+            android:hint="Date Lost (YYYY-MM-DD)"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/lost_contact"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/search_background"
+            android:hint="Your Contact Number"
+            android:padding="12dp"
+            android:inputType="phone"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/lost_select_image_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select Image (Optional)"
+            android:backgroundTint="#B1CFEC"
+            android:textColor="#000000"
+            android:layout_marginBottom="16dp" />
+
+        <ImageView
+            android:id="@+id/lost_image_preview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/lost_save_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Save Lost Item"
+            android:backgroundTint="#000000"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+</ScrollView>
